@@ -18,6 +18,8 @@
 
   <ItemGroup>
     <None Include="Views\Home\index.cshtml" />
+    <None Include="wwwroot\css\main.css" />
+    <None Include="wwwroot\css\util.css" />
   </ItemGroup>
 
 </Project>
