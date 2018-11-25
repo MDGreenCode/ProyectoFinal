@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Home\index.cshtml" />
+    <Content Remove="Views\Home\Login.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,9 +17,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Home\index.cshtml" />
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.2"></DotNetCliToolReference>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="Views\Account\Login.cshtml" />
     <None Include="wwwroot\css\main.css" />
     <None Include="wwwroot\css\util.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Middleware\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>
