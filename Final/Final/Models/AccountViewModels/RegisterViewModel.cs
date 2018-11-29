@@ -9,6 +9,10 @@ namespace Final.Models.AccountViewModels
     public class RegisterViewModel
     {
         [Required]
+        [MaxLength(100)]
+        public string Nombre { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
