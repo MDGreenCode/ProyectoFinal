@@ -8,10 +8,10 @@ namespace Final.Services
 {
     public interface productoServices
     {
-        Task<productos> Crea(productos vehiculo);
-        Task<IEnumerable<productos>> GetAll();
-        Task<productos> GetById(int id);
-        Task<productos> Eliminar(productos vehiculo);
-        Task<productos> actualizar(productos vehiculo);
+        productos Crea(productos productos);
+        IEnumerable<productos> GetAll();
+        productos GetById(int id);
+        void Eliminar(productos productos);
+        productos actualizar(productos productos);
     }
 }

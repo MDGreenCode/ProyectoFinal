@@ -4,39 +4,47 @@ using System.Linq;
 using System.Threading.Tasks;
 using Final.Models;
 using Final.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Final.Services
 {
     public class SeviceProductos : productoServices
     {
-        private readonly ApplicationDbContext _contex;
-        public SeviceProductos (ApplicationDbContext tx)
+        private readonly ApplicationDbContext _context;
+        public SeviceProductos(ApplicationDbContext tx)
         {
-            _contex = tx;
-        }
-        public Task<productos> actualizar(productos vehiculo)
-        {
-            throw new NotImplementedException();
+            _context = tx;
         }
 
-        public Task<productos> Crea(productos vehiculo)
+        public productos actualizar(productos productos)
         {
-            throw new NotImplementedException();
+            _context.Attach(productos).State = EntityState.Modified;
+            _context.SaveChanges();
+            return productos;
         }
 
-        public Task<productos> Eliminar(productos vehiculo)
+        public productos Crea(productos productos)
         {
-            throw new NotImplementedException();
+            _context.productos.Add(productos);
+            _context.SaveChanges();
+            return productos;
         }
 
-        public Task<IEnumerable<productos>> GetAll()
+        public void Eliminar(productos productos)
         {
-            throw new NotImplementedException();
+            _context.Attach(productos).State = EntityState.Deleted;
+            _context.SaveChanges();
+            
         }
 
-        public Task<productos> GetById(int id)
+        public IEnumerable<productos> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.productos.OrderBy(r => r.nombre);
+        }
+
+        public productos GetById(int id)
+        {
+            return _context.productos.FirstOrDefault(r => r.id == id);
         }
     }
 }

@@ -46,6 +46,8 @@ namespace Final
             // Add application services.
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddScoped<productoServices, SeviceProductos>();
+            services.AddScoped<FacturaServices, ServiceFactura>();
 
             services.AddMvc();
         }

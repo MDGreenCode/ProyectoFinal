@@ -7,10 +7,10 @@ namespace Final.Services
 {
     public interface FacturaServices
     {
-        Task<factura> Crea(factura factura);
-        Task<IEnumerable<factura>> GetAll();
-        Task<factura> GetById(int id);
-        Task<factura> Eliminar(factura factura);
-        Task<factura> actualizar(factura factura);
+        factura Crea(factura factura);
+        IEnumerable<factura> GetAll();
+        factura GetById(int id);
+        void Eliminar(factura factura);
+        factura actualizar(factura factura);
     }
 }

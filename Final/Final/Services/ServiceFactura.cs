@@ -4,40 +4,46 @@ using System.Linq;
 using System.Threading.Tasks;
 using Final.Models;
 using Final.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace Final.Services
 {
     public class ServiceFactura : FacturaServices
-
-        
     {
         private readonly ApplicationDbContext _context;
         public ServiceFactura(ApplicationDbContext ctx)
         {
-           _context = ctx;
-    }           
-        public Task<factura> actualizar(factura factura)
-        {
-            throw new NotImplementedException();
+            _context = ctx;
         }
 
-        public Task<factura> Crea(factura factura)
+        public factura actualizar(factura factura)
         {
-            throw new NotImplementedException();
+            _context.Attach(factura).State = EntityState.Modified;
+            _context.SaveChanges();
+            return factura;
         }
 
-        public Task<factura> Eliminar(factura factura)
+        public factura Crea(factura factura)
         {
-            throw new NotImplementedException();
+            _context.factura.Add(factura);
+            _context.SaveChanges();
+            return factura;
         }
 
-        public Task<IEnumerable<factura>> GetAll()
+        public void Eliminar(factura factura)
         {
-            throw new NotImplementedException();
+            _context.Attach(factura).State = EntityState.Deleted;
+            _context.SaveChanges();
         }
 
-        public Task<factura> GetById(int id)
+        public IEnumerable<factura> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.factura.OrderBy(r => r.id);
+        }
+
+        public factura GetById(int id)
+        {
+            return _context.productos.FirstOrDefault(r => r.id == id);
         }
     }
 }
