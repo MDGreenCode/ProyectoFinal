@@ -43,7 +43,7 @@ namespace Final.Services
 
         public factura GetById(int id)
         {
-            return _context.productos.FirstOrDefault(r => r.id == id);
+            return _context.factura.FirstOrDefault(r => r.id == id);
         }
     }
 }
