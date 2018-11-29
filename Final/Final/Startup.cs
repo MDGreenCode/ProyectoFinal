@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Final.Data;
 using Final.Models;
 using Final.Services;
+using static Final.Services.IUserClaimsPrincipalFactory;
 
 namespace Final
 {
@@ -48,6 +49,7 @@ namespace Final
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddScoped<productoServices, SeviceProductos>();
             services.AddScoped<FacturaServices, ServiceFactura>();
+            services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, MyUserClaimsPrincipalFactory>();
 
             services.AddMvc();
         }
