@@ -29,11 +29,22 @@ namespace Final.Controllers
             return View();
         }
 
-        public IActionResult Inventario()
+        public IActionResult DetalleProducto(int id)
+        {
+            var model = _productoServices.GetById(id);
+            if (model == null)
+            {
+                return RedirectToAction("Inventario");
+            }
+            return View(model);
+        }
+
+        public IActionResult Inventario(Cliente cliente = null)
         {
             var model = new HomeInventarioModel();
             model.productos = _productoServices.GetAll();
             return View(model);
+            
         }
 
         public IActionResult Error()

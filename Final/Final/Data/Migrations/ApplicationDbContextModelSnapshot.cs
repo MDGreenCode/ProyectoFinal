@@ -12,7 +12,7 @@ namespace Final.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
-    {C:\Users\Natanael\Source\Repos\ProyectoFinal2\Final\Final\Data\Migrations\
+    {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618

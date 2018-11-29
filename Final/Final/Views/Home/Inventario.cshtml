@@ -8,13 +8,13 @@
             Nombre
         </th>
         <th class="th-sm">
-            Detalle
-        </th>
-        <th class="th-sm">
             Cantidad
         </th>
         <th class="th-sm">
             Precio
+        </th>
+        <th class="th-sm">
+            Detalle
         </th>
     </tr>
     <tbody>
@@ -22,9 +22,11 @@
         {
             <tr>
                 <td>@p.nombre</td>
-                <td>@p.detalle</td>
                 <td>@p.cantidad</td>
                 <td>@p.precios</td>
+                <td>
+                    <a asp-area="" asp-controller="Home" asp-action="DetalleProducto" asp-route-id="@p.id">Detalle</a>
+                </td>
             </tr>
         }
     </tbody>
