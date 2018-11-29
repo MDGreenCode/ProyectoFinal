@@ -14,6 +14,7 @@ namespace Final.Data
             : base(options)
         {
         }
+        //revisar
         public DbSet<productos> productos { get; set; }
         public DbSet<factura> factura { get; set; }
 
