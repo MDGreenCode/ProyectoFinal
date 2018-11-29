@@ -44,6 +44,7 @@ namespace Final
                 .AddDefaultTokenProviders();
 
             // Add application services.
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
