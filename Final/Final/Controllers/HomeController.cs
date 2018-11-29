@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Final.Models;
 using Microsoft.AspNetCore.Authorization;
 using Final.Services;
+using Final.Models.HomeViewModels;
 
 namespace Final.Controllers
 {
@@ -14,14 +15,36 @@ namespace Final.Controllers
     public class HomeController : Controller
     {
         private productoServices _productoServices;
+        private FacturaServices _facturaServices;
 
-        public HomeController(productoServices productoServices)
+        public HomeController(productoServices productoServices,
+                              FacturaServices facturaServices)
         {
             _productoServices = productoServices;
+            _facturaServices = facturaServices;
         }
+
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult DetalleProducto(int id)
+        {
+            var model = _productoServices.GetById(id);
+            if (model == null)
+            {
+                return RedirectToAction("Inventario");
+            }
+            return View(model);
+        }
+
+        public IActionResult Inventario(Cliente cliente = null)
+        {
+            var model = new HomeInventarioModel();
+            model.productos = _productoServices.GetAll();
+            return View(model);
+            
         }
 
         public IActionResult Error()
