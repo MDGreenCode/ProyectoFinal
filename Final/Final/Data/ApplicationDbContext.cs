@@ -14,6 +14,8 @@ namespace Final.Data
             : base(options)
         {
         }
+        public DbSet<productos> productos { get; set; }
+        public DbSet<factura> factura { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
