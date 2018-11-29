@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Final.Models;
 using Microsoft.AspNetCore.Authorization;
 using Final.Services;
+using Final.Models.HomeViewModels;
 
 namespace Final.Controllers
 {
@@ -22,12 +23,18 @@ namespace Final.Controllers
             _productoServices = productoServices;
             _facturaServices = facturaServices;
         }
+
         public IActionResult Index()
         {
             return View();
         }
 
-       
+        public IActionResult Inventario()
+        {
+            var model = new HomeInventarioModel();
+            model.productos = _productoServices.GetAll();
+            return View(model);
+        }
 
         public IActionResult Error()
         {
