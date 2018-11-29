@@ -14,20 +14,15 @@ namespace Final.Controllers
     public class HomeController : Controller
     {
         private productoServices _productoServices;
-        private FacturaServices _facturaServices;
 
-        public HomeController(productoServices productoServices,
-                              FacturaServices facturaServices)
+        public HomeController(productoServices productoServices)
         {
             _productoServices = productoServices;
-            _facturaServices = facturaServices;
         }
         public IActionResult Index()
         {
             return View();
         }
-
-       
 
         public IActionResult Error()
         {
