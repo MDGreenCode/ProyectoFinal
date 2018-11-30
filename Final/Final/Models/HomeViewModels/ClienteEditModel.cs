@@ -4,13 +4,12 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Final.Models
+namespace Final.Models.HomeViewModels
 {
-    public class Cliente
+    public class ClienteEditModel
     {
-        public int id { get; set; }
         [Required]
-        public string Nombre { get; set; }
+        public string nombre { get; set; }
         [Required]
         [EmailAddress]
         public string Email { get; set; }
