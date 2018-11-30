@@ -75,6 +75,31 @@ namespace Final.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("Final.Models.Cliente", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Email")
+                        .IsRequired();
+
+                    b.Property<string>("Nombre")
+                        .IsRequired();
+
+                    b.Property<string>("cedula")
+                        .IsRequired();
+
+                    b.Property<string>("direccion")
+                        .IsRequired();
+
+                    b.Property<string>("telefono")
+                        .IsRequired();
+
+                    b.HasKey("id");
+
+                    b.ToTable("clientes");
+                });
+
             modelBuilder.Entity("Final.Models.factura", b =>
                 {
                     b.Property<int>("id")
@@ -100,15 +125,33 @@ namespace Final.Data.Migrations
 
                     b.Property<int>("cantidad");
 
-                    b.Property<string>("detalle");
+                    b.Property<string>("detalle")
+                        .IsRequired();
 
-                    b.Property<string>("nombre");
+                    b.Property<string>("nombre")
+                        .IsRequired();
 
-                    b.Property<int>("precios");
+                    b.Property<int>("precio");
 
                     b.HasKey("id");
 
                     b.ToTable("productos");
+                });
+
+            modelBuilder.Entity("Final.Models.Proveedor", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Detalle")
+                        .IsRequired();
+
+                    b.Property<string>("nombre")
+                        .IsRequired();
+
+                    b.HasKey("id");
+
+                    b.ToTable("proveedores");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

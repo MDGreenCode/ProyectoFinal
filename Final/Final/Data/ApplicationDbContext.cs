@@ -17,6 +17,8 @@ namespace Final.Data
         //revisar
         public DbSet<productos> productos { get; set; }
         public DbSet<factura> factura { get; set; }
+        public DbSet<Cliente> clientes { get; set; }
+        public DbSet<Proveedor> proveedores { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -20,14 +20,21 @@
     <tbody>
         @foreach (var p in Model.productos)
         {
-            <tr>
-                <td>@p.nombre</td>
+        <tr>
+            <td>@p.nombre</td>
+            @if (p.cantidad == 0)
+            {
+                <td>No se Requiere</td>
+            }
+            else
+            {
                 <td>@p.cantidad</td>
-                <td>@p.precios</td>
-                <td>
-                    <a asp-area="" asp-controller="Home" asp-action="DetalleProducto" asp-route-id="@p.id">Detalle</a>
-                </td>
-            </tr>
+            }
+            <td>@p.precio</td>
+            <td>
+                <a asp-area="" asp-controller="Home" asp-action="DetalleProducto" asp-route-id="@p.id">Detalle</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>
