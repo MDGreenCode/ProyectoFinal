@@ -4,34 +4,52 @@
     ViewBag.Title = "Nuevo Cliente";
 }
 
-<h1>Nuevo cliente</h1>
+<style>
+    body {
+        background-image: url("/img/w.jpg");
+</style>
 
-<form method="post">
+<br /><br /><br /><br /><br />
+                        
+                            <div class="text-center">
+                                <div style="width:35%; margin-left: 30%">
+                                    <h1>Nuevo cliente</h1>
 
-    <div>
-        <label asp-for="Nombre"></label>
-        <input asp-for="Nombre" />
-        <span asp-validation-for="Nombre"></span>
-    </div>
-    <div>
-        <label asp-for="cedula"></label>
-        <input asp-for="cedula" />
-        <span asp-validation-for="cedula"></span>
-    </div>
-    <div>
-        <label asp-for="Email"></label>
-        <input asp-for="Email" />
-        <span asp-validation-for="Email"></span>
-    </div>
-    <div>
-        <label asp-for="direccion"></label>
-        <input asp-for="direccion" />
-        <span asp-validation-for="direccion"></span>
-    </div>
-    <div>
-        <label asp-for="telefono"></label>
-        <input asp-for="telefono" />
-        <span asp-validation-for="telefono"></span>
-    </div>
-    <input type="submit" name="save" value="Save" />
-</form>
+                                    <form method="post">
+
+                                        <div>
+                                            <label asp-for="Nombre"></label>
+                                            <input asp-for="Nombre" />
+                                            <span asp-validation-for="Nombre"></span>
+                                        </div>
+                                        <br />
+                                        <div>
+                                            <label asp-for="cedula"></label>
+                                            <input asp-for="cedula" />
+                                            <span asp-validation-for="cedula"></span>
+                                        </div>
+                                        <br />
+                                        <div>
+                                            <label asp-for="Email"></label>
+                                            <input asp-for="Email" />
+                                            <span asp-validation-for="Email"></span>
+                                        </div>
+                                        <br />
+                                        <div>
+                                            <label asp-for="direccion"></label>
+                                            <input asp-for="direccion" />
+                                            <span asp-validation-for="direccion"></span>
+                                        </div>
+                                        <br />
+
+                                        <div>
+                                            <label asp-for="telefono"></label>
+                                            <input asp-for="telefono" />
+                                            <span asp-validation-for="telefono"></span>
+                                        </div>
+                                        <br />
+                                        <input type="submit" name="save" value="Crear" />
+                                    </form>
+                                </div>
+                            </div>
+                        
