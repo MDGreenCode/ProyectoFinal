@@ -16,12 +16,15 @@ namespace Final.Controllers
     {
         private productoServices _productoServices;
         private FacturaServices _facturaServices;
+        private IClientesData _clienteData;
 
         public HomeController(productoServices productoServices,
-                              FacturaServices facturaServices)
+                              FacturaServices facturaServices,
+                              IClientesData clientesData)
         {
             _productoServices = productoServices;
             _facturaServices = facturaServices;
+            _clienteData = clientesData;
         }
 
         public IActionResult Index()
@@ -46,10 +49,10 @@ namespace Final.Controllers
                 newProducto.cantidad = model.cantidad;
                 newProducto.detalle = model.detalle;
                 newProducto.precio = model.precio;
-
+                
                 newProducto = _productoServices.Crea(newProducto);
 
-                return RedirectToAction(nameof(DetalleProducto), new { id = newProducto.id });
+                return RedirectToAction(nameof(DetalleProducto), new { id = newProducto.Id });
             }
             else
             {
@@ -57,7 +60,36 @@ namespace Final.Controllers
             }
         }
 
-        [AllowAnonymous]
+        [HttpGet]
+        public IActionResult CrearCliente()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public IActionResult CrearCliente(ClienteEditModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var newCliente = new Cliente();
+                newCliente.Nombre = model.nombre;
+                newCliente.cedula = model.cedula;
+                newCliente.telefono = model.telefono;
+                newCliente.direccion = model.direccion;
+                newCliente.Email = model.Email;
+
+                newCliente = _clienteData.Add(newCliente);
+
+                return RedirectToAction(nameof(DetalleCliente), new { id = newCliente.id });
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        
         public IActionResult DetalleProducto(int id)
         {
             var model = _productoServices.GetById(id);
@@ -67,13 +99,30 @@ namespace Final.Controllers
             }
             return View(model);
         }
-        [AllowAnonymous]
+        
         public IActionResult Inventario(Cliente cliente = null)
         {
             var model = new HomeInventarioModel();
             model.productos = _productoServices.GetAll();
             return View(model);
             
+        }
+
+        public IActionResult DetalleCliente(int id)
+        {
+            var model = _clienteData.Get(id);
+            if (model == null)
+            {
+                return RedirectToAction("Clientes");
+            }
+            return View(model);
+        }
+
+        public IActionResult Clientes(Cliente cliente = null)
+        {
+            var model = new HomeClientesModel();
+            model.clientes = _clienteData.GetAll();
+            return View(model);
         }
 
         public IActionResult Error()

@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace Final.Models.HomeViewModels
 {
-    public class HomeIndexModel
+    public class HomeClientesModel
     {
-        public IEnumerable<productos> productos { get; set; }
         public IEnumerable<Cliente> clientes { get; set; }
     }
 }

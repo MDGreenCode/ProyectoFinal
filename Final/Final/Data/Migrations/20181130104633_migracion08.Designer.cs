@@ -11,9 +11,10 @@ using System;
 namespace Final.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181130104633_migracion08")]
+    partial class migracion08
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,15 +108,9 @@ namespace Final.Data.Migrations
 
                     b.Property<DateTime>("Fecha");
 
-                    b.Property<int>("productoid");
-
-                    b.Property<int>("productosId");
-
                     b.Property<int>("total");
 
                     b.HasKey("id");
-
-                    b.HasIndex("productosId");
 
                     b.ToTable("factura");
                 });
@@ -130,14 +125,38 @@ namespace Final.Data.Migrations
                     b.Property<string>("detalle")
                         .IsRequired();
 
+                    b.Property<int?>("facturaid");
+
                     b.Property<string>("nombre")
                         .IsRequired();
 
                     b.Property<int>("precio");
 
+                    b.Property<int>("proveedorid");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("facturaid");
+
+                    b.HasIndex("proveedorid");
+
                     b.ToTable("productos");
+                });
+
+            modelBuilder.Entity("Final.Models.Proveedor", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Detalle")
+                        .IsRequired();
+
+                    b.Property<string>("nombre")
+                        .IsRequired();
+
+                    b.HasKey("id");
+
+                    b.ToTable("proveedores");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -248,11 +267,15 @@ namespace Final.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Final.Models.factura", b =>
+            modelBuilder.Entity("Final.Models.productos", b =>
                 {
-                    b.HasOne("Final.Models.productos", "productos")
+                    b.HasOne("Final.Models.factura")
+                        .WithMany("productos")
+                        .HasForeignKey("facturaid");
+
+                    b.HasOne("Final.Models.Proveedor", "proveedor")
                         .WithMany()
-                        .HasForeignKey("productosId")
+                        .HasForeignKey("proveedorid")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

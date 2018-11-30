@@ -1,5 +1,37 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model Final.Models.Cliente
+
 @{
+    ViewBag.Title = "Nuevo Cliente";
 }
+
+<h1>Nuevo cliente</h1>
+
+<form method="post">
+
+    <div>
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre" />
+        <span asp-validation-for="Nombre"></span>
+    </div>
+    <div>
+        <label asp-for="cedula"></label>
+        <input asp-for="cedula" />
+        <span asp-validation-for="cedula"></span>
+    </div>
+    <div>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div>
+        <label asp-for="direccion"></label>
+        <input asp-for="direccion" />
+        <span asp-validation-for="direccion"></span>
+    </div>
+    <div>
+        <label asp-for="telefono"></label>
+        <input asp-for="telefono" />
+        <span asp-validation-for="telefono"></span>
+    </div>
+    <input type="submit" name="save" value="Save" />
+</form>

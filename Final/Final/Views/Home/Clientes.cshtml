@@ -1,4 +1,4 @@
-﻿@model Final.Models.HomeViewModels.HomeInventarioModel
+﻿@model Final.Models.HomeViewModels.HomeClientesModel
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
 
@@ -8,32 +8,34 @@
             Nombre
         </th>
         <th class="th-sm">
-            Cantidad
+            Email
         </th>
         <th class="th-sm">
-            Precio
+            Cedula
         </th>
         <th class="th-sm">
-            Detalle
+            Telefono
+        </th>
+        <th class="th-sm">
+            Direccion
+        </th>
+        <th class="th-sm">
+            Detalles
         </th>
     </tr>
     <tbody>
-        @foreach (var p in Model.productos)
+        @foreach (var p in Model.clientes)
         {
         <tr>
-            <td>@p.nombre</td>
-            @if (p.cantidad == 0)
-            {
-                <td>No se Requiere</td>
-            }
-            else
-            {
-                <td>@p.cantidad</td>
-            }
-            <td>@p.precio</td>
+            <td>@p.Nombre</td>
+            <td>@p.Email</td>
+            <td>@p.cedula</td>
+            <td>@p.telefono</td>
+            <td>@p.direccion</td>
             <td>
-                <a asp-area="" asp-controller="Home" asp-action="DetalleProducto" asp-route-id="@p.Id">Detalle</a>
+                <a asp-area="" asp-controller="Home" asp-action="Detalle" asp-route-id="@p.id">Detalle</a>
             </td>
+
         </tr>
         }
     </tbody>

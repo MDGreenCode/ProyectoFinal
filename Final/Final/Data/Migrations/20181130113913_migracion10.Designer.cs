@@ -11,9 +11,10 @@ using System;
 namespace Final.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181130113913_migracion10")]
+    partial class migracion10
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -135,9 +136,29 @@ namespace Final.Data.Migrations
 
                     b.Property<int>("precio");
 
+                    b.Property<int>("proveedorid");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("proveedorid");
+
                     b.ToTable("productos");
+                });
+
+            modelBuilder.Entity("Final.Models.Proveedor", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Detalle")
+                        .IsRequired();
+
+                    b.Property<string>("nombre")
+                        .IsRequired();
+
+                    b.HasKey("id");
+
+                    b.ToTable("proveedores");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -253,6 +274,14 @@ namespace Final.Data.Migrations
                     b.HasOne("Final.Models.productos", "productos")
                         .WithMany()
                         .HasForeignKey("productosId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Final.Models.productos", b =>
+                {
+                    b.HasOne("Final.Models.Proveedor", "proveedor")
+                        .WithMany()
+                        .HasForeignKey("proveedorid")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

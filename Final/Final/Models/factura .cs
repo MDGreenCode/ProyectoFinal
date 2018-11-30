@@ -15,5 +15,6 @@ namespace Final.Models
         public DateTime Fecha { get; set; }
         [Required]
         public productos productos { get; set; }
+        public int productoid { get; set; }
     }
 }
