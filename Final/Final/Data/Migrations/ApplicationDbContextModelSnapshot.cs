@@ -107,13 +107,9 @@ namespace Final.Data.Migrations
 
                     b.Property<DateTime>("Fecha");
 
-                    b.Property<int>("productosid");
-
-                    b.Property<int>("total");
+                    b.Property<double>("total");
 
                     b.HasKey("id");
-
-                    b.HasIndex("productosid");
 
                     b.ToTable("factura");
                 });
@@ -128,12 +124,16 @@ namespace Final.Data.Migrations
                     b.Property<string>("detalle")
                         .IsRequired();
 
+                    b.Property<int?>("facturaid");
+
                     b.Property<string>("nombre")
                         .IsRequired();
 
                     b.Property<int>("precio");
 
                     b.HasKey("id");
+
+                    b.HasIndex("facturaid");
 
                     b.ToTable("productos");
                 });
@@ -262,12 +262,11 @@ namespace Final.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Final.Models.factura", b =>
+            modelBuilder.Entity("Final.Models.productos", b =>
                 {
-                    b.HasOne("Final.Models.productos", "productos")
-                        .WithMany()
-                        .HasForeignKey("productosid")
-                        .OnDelete(DeleteBehavior.Cascade);
+                    b.HasOne("Final.Models.factura")
+                        .WithMany("productos")
+                        .HasForeignKey("facturaid");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

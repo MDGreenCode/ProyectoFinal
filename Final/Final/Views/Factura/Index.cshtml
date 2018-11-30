@@ -1,0 +1,58 @@
+﻿@model factura
+
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<style>
+		table {
+			border: 1px solid silver;
+			border-collapse: collapse;
+		}
+
+			table td {
+				border-bottom: 1px solid silver;
+			}
+	</style>
+</head>
+<body>
+	<h1 style="text-align:center;">Factura</h1>
+	<div style="float:left;">
+		Santo Domingo<br />
+		Republica Dominicana<br /><br />
+	</div>
+	<div style="float:right;">
+		<div style="border:1px solid gray;padding:10px;">
+			A company<br />
+			Calle Duarte<br />
+			Zonas Francas<br />
+			R.D
+		</div>
+	</div>
+	<div style="clear:both;"></div>
+	<br /><br />
+	Lista de productos:
+	<table width="100%" style="margin-bottom:20px;">
+		@foreach (var producto in Model.productos)
+		{
+			<tr>
+				<td>@producto.nombre</td>
+				<td>@producto.cantidad</td>
+				<td align="center">@producto.precio$</td>
+			</tr>
+		}
+		<tr>
+			<td colspan="2" align="right">Total:</td>
+			<td>@Model.total$</td>
+		</tr>
+	</table>
+
+
+	<div style="float:right;">
+		Hecha: @Model.Fecha<br />
+		Firma:<br />
+		<img src="~/img/Firma_falsa.jpg" />
+	</div>
+	<div style="clear:both;"></div>
+
+</body>
+</html>
