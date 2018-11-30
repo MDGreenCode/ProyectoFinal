@@ -11,7 +11,7 @@ using Final.Models.HomeViewModels;
 
 namespace Final.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class HomeController : Controller
     {
         private productoServices _productoServices;
@@ -28,6 +28,35 @@ namespace Final.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public IActionResult CrearProducto()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public IActionResult CrearProducto(ProductosEditModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var newProducto = new productos();
+                newProducto.nombre = model.nombre;
+                newProducto.cantidad = model.cantidad;
+                newProducto.detalle = model.detalle;
+                newProducto.precios = model.precio;
+
+                newProducto = _productoServices.Crea(newProducto);
+
+                return RedirectToAction(nameof(DetalleProducto), new { id = newProducto.id });
+            }
+            else
+            {
+                return View();
+            }
+        }
+
         [AllowAnonymous]
         public IActionResult DetalleProducto(int id)
         {
