@@ -11,7 +11,7 @@ using Final.Models.HomeViewModels;
 
 namespace Final.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class HomeController : Controller
     {
         private productoServices _productoServices;
@@ -89,23 +89,16 @@ namespace Final.Controllers
             }
         }
 
-        public IActionResult DetalleProducto()
+        
+        public IActionResult DetalleProducto(int id)
         {
-            return View();
+            var model = _productoServices.GetById(id);
+            if (model == null)
+            {
+                return RedirectToAction("Inventario");
+            }
+            return View(model);
         }
-        public IActionResult DetalleCliente()
-        {
-            return View();
-        }
-        //public IActionResult DetalleProducto(int id)
-        //{
-        //    var model = _productoServices.GetById(id);
-        //    if (model == null)
-        //    {
-        //        return RedirectToAction("Inventario");
-        //    }
-        //    return View(model);
-        //}
 
         public IActionResult Inventario(Cliente cliente = null)
         {
@@ -115,15 +108,15 @@ namespace Final.Controllers
             
         }
 
-        //public IActionResult DetalleCliente(int id)
-        //{
-        //    var model = _clienteData.Get(id);
-        //    if (model == null)
-        //    {
-        //        return RedirectToAction("Clientes");
-        //    }
-        //    return View(model);
-        //}
+        public IActionResult DetalleCliente(int id)
+        {
+            var model = _clienteData.Get(id);
+            if (model == null)
+            {
+                return RedirectToAction("Clientes");
+            }
+            return View(model);
+        }
 
         public IActionResult Clientes(Cliente cliente = null)
         {
