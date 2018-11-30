@@ -10,15 +10,19 @@ namespace Final.Models
     {
         public int id { get; set; }
         [Required]
+        [Display(Name = "Nombre del cliente")]
         public string Nombre { get; set; }
         [Required]
         [EmailAddress]
         public string Email { get; set; }
         [Required]
+        [Display(Name = "Cedula")]
         public string cedula { get; set; }
         [Required]
+        [Display(Name = "Telefono")]
         public string telefono { get; set; }
         [Required]
+        [Display(Name = "Dirreccion")]
         public string direccion { get; set; }
     }
 }
