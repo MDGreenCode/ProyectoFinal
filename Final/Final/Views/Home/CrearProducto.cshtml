@@ -1,33 +1,49 @@
 ﻿@model Final.Models.productos
 
-@{ 
+@{
     ViewBag.Title = "Crear Producto";
 }
 
-<h1>Crear producto</h1>
+<style>
+    body {
+        background-image: url("/img/s.jpeg");
+</style>
 
-<form method="post">
 
-    <div>
-        <label asp-for="nombre"></label>
-        <input asp-for="nombre" />
-        <span asp-validation-for="nombre"></span>
+<div class="text-center">
+    <div style="width:35%; margin-left: 30%">
+
+
+        <h1>Crear producto</h1>
+
+        <form method="post">
+
+            <div>
+                <label asp-for="nombre"></label>
+                <input asp-for="nombre" />
+                <span asp-validation-for="nombre"></span>
+            </div>
+            <br />
+            <div>
+                <label asp-for="detalle"></label>
+                <input asp-for="detalle" />
+                <span asp-validation-for="detalle"></span>
+            </div>
+            <br />
+            <div>
+                <label asp-for="cantidad"></label>
+                <input asp-for="cantidad" />
+                <span asp-validation-for="cantidad"></span>
+            </div>
+            <br />
+            <div>
+                <label asp-for="precio"></label>
+                <input asp-for="precio" />
+                <span asp-validation-for="precio"></span>
+            </div>
+            <br />
+            <input type="submit" name="save" value="Save" />
+        </form>
+
     </div>
-    <div>
-        <label asp-for="detalle"></label>
-        <input asp-for="detalle" />
-        <span asp-validation-for="detalle"></span>
-    </div>
-    <div>
-        <label asp-for="cantidad"></label>
-        <input asp-for="cantidad" />
-        <span asp-validation-for="cantidad"></span>
-    </div>
-    <div>
-        <label asp-for="precio"></label>
-        <input asp-for="precio" />
-        <span asp-validation-for="precio"></span>
-    </div>
-    
-    <input type="submit" name="save" value="Save" />
-</form>
+ </div>
