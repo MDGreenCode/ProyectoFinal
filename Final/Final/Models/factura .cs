@@ -9,10 +9,11 @@ namespace Final.Models
     public class factura
     {
         public int id{ get; set; }
+        [Required]
         public int total  { get; set; }
         [DataType(DataType.Date)]
         public DateTime Fecha { get; set; }
+        [Required]
         public productos productos { get; set; }
-        public int productosid { get; set; }
     }
 }

@@ -11,9 +11,10 @@ using System;
 namespace Final.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181130023939_migracion02")]
+    partial class migracion02
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -75,31 +76,6 @@ namespace Final.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("Final.Models.Cliente", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Email")
-                        .IsRequired();
-
-                    b.Property<string>("Nombre")
-                        .IsRequired();
-
-                    b.Property<string>("cedula")
-                        .IsRequired();
-
-                    b.Property<string>("direccion")
-                        .IsRequired();
-
-                    b.Property<string>("telefono")
-                        .IsRequired();
-
-                    b.HasKey("id");
-
-                    b.ToTable("clientes");
-                });
-
             modelBuilder.Entity("Final.Models.factura", b =>
                 {
                     b.Property<int>("id")
@@ -136,22 +112,6 @@ namespace Final.Data.Migrations
                     b.HasKey("id");
 
                     b.ToTable("productos");
-                });
-
-            modelBuilder.Entity("Final.Models.Proveedor", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Detalle")
-                        .IsRequired();
-
-                    b.Property<string>("nombre")
-                        .IsRequired();
-
-                    b.HasKey("id");
-
-                    b.ToTable("proveedores");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
