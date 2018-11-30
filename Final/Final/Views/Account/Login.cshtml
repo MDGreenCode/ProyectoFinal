@@ -6,7 +6,7 @@
 @inject SignInManager<ApplicationUser> SignInManager
 
 @{
-    ViewData["Title"] = "Log in";
+    ViewData["Title"] = "Login";
 }
 
 <style>
@@ -23,7 +23,7 @@
 
                     <section>
                         <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
-                            <h4>Use a local account to log in.</h4>
+                            <h4>Use una cuenta local para registrarse.</h4>
                             <hr />
                             <div asp-validation-summary="All" class="text-danger"></div>
                             <div class="form-group">
@@ -45,14 +45,14 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-default">Log in</button>
+                                <button type="submit" class="btn btn-default">Registrar</button>
                             </div>
                             <div class="form-group">
                                 <p>
-                                    <a asp-action="ForgotPassword">Forgot your password?</a>
+                                    <a asp-action="ForgotPassword">Olvidaste tu contraseña?</a>
                                 </p>
                                 <p>
-                                    <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">Register as a new user?</a>
+                                    <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">Registrarse con una nueva cuenta</a>
                                 </p>
                             </div>
                         </form>
