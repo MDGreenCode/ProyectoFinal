@@ -8,8 +8,6 @@ namespace Final.Models.HomeViewModels
     public class HomeIndexModel
     {
         public IEnumerable<productos> productos { get; set; }
-        public IEnumerable<Proveedor> proveedores { get; set; }
         public IEnumerable<Cliente> clientes { get; set; }
-
     }
 }

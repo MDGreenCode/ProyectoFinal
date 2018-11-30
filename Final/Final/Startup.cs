@@ -50,7 +50,6 @@ namespace Final
             services.AddScoped<productoServices, SeviceProductos>();
             services.AddScoped<FacturaServices, ServiceFactura>();
             services.AddScoped<IClientesData,SqlClientesData>();
-            services.AddScoped<IProveedoresData, SqlProveedoresData>();
             services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, MyUserClaimsPrincipalFactory>();
 
             services.AddMvc();

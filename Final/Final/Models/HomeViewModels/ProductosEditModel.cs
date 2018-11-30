@@ -14,5 +14,6 @@ namespace Final.Models.HomeViewModels
         public int cantidad { get; set; }
         [Required]
         public int precio { get; set; }
+        
     }
 }
