@@ -15,6 +15,6 @@ namespace Final.Models
         public string detalle { get; set; }
         public int cantidad  { get; set; }
         [Required]
-        public int precios  { get; set; }
+        public int precio { get; set; }
     }
 }

@@ -11,8 +11,8 @@ namespace Final.Models.HomeViewModels
         [Required]
         public string nombre { get; set; }
         public string detalle { get; set; }
+        public int cantidad { get; set; }
         [Required]
         public int precio { get; set; }
-        public int cantidad { get; set; }
     }
 }

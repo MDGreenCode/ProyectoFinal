@@ -45,7 +45,7 @@ namespace Final.Controllers
                 newProducto.nombre = model.nombre;
                 newProducto.cantidad = model.cantidad;
                 newProducto.detalle = model.detalle;
-                newProducto.precios = model.precio;
+                newProducto.precio = model.precio;
 
                 newProducto = _productoServices.Crea(newProducto);
 
