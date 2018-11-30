@@ -16,5 +16,6 @@ namespace Final.Models
         [Required]
         public productos productos { get; set; }
         public int productoid { get; set; }
+        public string nombre { get; set; }
     }
 }
