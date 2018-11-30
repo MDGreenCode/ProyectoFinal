@@ -11,9 +11,10 @@ using System;
 namespace Final.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181130053508_migracion06")]
+    partial class migracion06
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,20 +108,20 @@ namespace Final.Data.Migrations
 
                     b.Property<DateTime>("Fecha");
 
-                    b.Property<int>("productosId");
+                    b.Property<int>("productosid");
 
                     b.Property<int>("total");
 
                     b.HasKey("id");
 
-                    b.HasIndex("productosId");
+                    b.HasIndex("productosid");
 
                     b.ToTable("factura");
                 });
 
             modelBuilder.Entity("Final.Models.productos", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("cantidad");
@@ -135,7 +136,7 @@ namespace Final.Data.Migrations
 
                     b.Property<int>("proveedorid");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
                     b.HasIndex("proveedorid");
 
@@ -270,7 +271,7 @@ namespace Final.Data.Migrations
                 {
                     b.HasOne("Final.Models.productos", "productos")
                         .WithMany()
-                        .HasForeignKey("productosId")
+                        .HasForeignKey("productosid")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

@@ -8,7 +8,7 @@ namespace Final.Models
 {
     public class productos
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         [Required]
         public string nombre { get; set; }
         [Required]
@@ -16,5 +16,7 @@ namespace Final.Models
         public int cantidad  { get; set; }
         [Required]
         public int precio { get; set; }
+        [Required]
+        public Proveedor proveedor { get; set; }
     }
 }

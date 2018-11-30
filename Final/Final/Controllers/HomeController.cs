@@ -46,10 +46,10 @@ namespace Final.Controllers
                 newProducto.cantidad = model.cantidad;
                 newProducto.detalle = model.detalle;
                 newProducto.precio = model.precio;
-
+                
                 newProducto = _productoServices.Crea(newProducto);
 
-                return RedirectToAction(nameof(DetalleProducto), new { id = newProducto.id });
+                return RedirectToAction(nameof(DetalleProducto), new { id = newProducto.Id });
             }
             else
             {

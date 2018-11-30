@@ -44,7 +44,7 @@ namespace Final.Services
 
         public productos GetById(int id)
         {
-            return _context.productos.FirstOrDefault(r => r.id == id);
+            return _context.productos.FirstOrDefault(r => r.Id == id);
         }
     }
 }
