@@ -13,7 +13,6 @@ namespace Final.Models
         public string nombre { get; set; }
         [Required]
         public string detalle { get; set; }
-        [Required]
         public int cantidad  { get; set; }
         [Required]
         public int precios  { get; set; }

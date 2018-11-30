@@ -28,7 +28,7 @@ namespace Final.Controllers
         {
             return View();
         }
-
+        [AllowAnonymous]
         public IActionResult DetalleProducto(int id)
         {
             var model = _productoServices.GetById(id);
@@ -38,7 +38,7 @@ namespace Final.Controllers
             }
             return View(model);
         }
-
+        [AllowAnonymous]
         public IActionResult Inventario(Cliente cliente = null)
         {
             var model = new HomeInventarioModel();
