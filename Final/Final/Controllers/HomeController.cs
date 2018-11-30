@@ -89,17 +89,24 @@ namespace Final.Controllers
             }
         }
 
-        
-        public IActionResult DetalleProducto(int id)
+        public IActionResult DetalleProducto()
         {
-            var model = _productoServices.GetById(id);
-            if (model == null)
-            {
-                return RedirectToAction("Inventario");
-            }
-            return View(model);
+            return View();
         }
-        
+        public IActionResult DetalleCliente()
+        {
+            return View();
+        }
+        //public IActionResult DetalleProducto(int id)
+        //{
+        //    var model = _productoServices.GetById(id);
+        //    if (model == null)
+        //    {
+        //        return RedirectToAction("Inventario");
+        //    }
+        //    return View(model);
+        //}
+
         public IActionResult Inventario(Cliente cliente = null)
         {
             var model = new HomeInventarioModel();
@@ -108,15 +115,15 @@ namespace Final.Controllers
             
         }
 
-        public IActionResult DetalleCliente(int id)
-        {
-            var model = _clienteData.Get(id);
-            if (model == null)
-            {
-                return RedirectToAction("Clientes");
-            }
-            return View(model);
-        }
+        //public IActionResult DetalleCliente(int id)
+        //{
+        //    var model = _clienteData.Get(id);
+        //    if (model == null)
+        //    {
+        //        return RedirectToAction("Clientes");
+        //    }
+        //    return View(model);
+        //}
 
         public IActionResult Clientes(Cliente cliente = null)
         {
