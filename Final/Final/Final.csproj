@@ -10,6 +10,7 @@
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" PrivateAssets="All" />
+    <PackageReference Include="Rotativa.AspNetCore" Version="1.1.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +32,10 @@
     <Content Update="Views\Home\DetalleProducto.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Rotativa\" />
   </ItemGroup>
 
 </Project>
