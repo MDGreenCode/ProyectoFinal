@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Final.Data.Migrations
 {
-    public partial class migracion06 : Migration
+    public partial class migracion0601 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

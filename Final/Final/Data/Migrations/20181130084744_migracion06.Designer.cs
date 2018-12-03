@@ -12,7 +12,7 @@ namespace Final.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20181130084744_migracion06")]
-    partial class migracion06
+    partial class migracion0601
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
