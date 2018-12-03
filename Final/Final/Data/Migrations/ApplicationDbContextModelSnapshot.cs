@@ -107,15 +107,13 @@ namespace Final.Data.Migrations
 
                     b.Property<DateTime>("Fecha");
 
-                    b.Property<int>("productoid");
-
-                    b.Property<int>("productosId");
+                    b.Property<int>("productosid");
 
                     b.Property<int>("total");
 
                     b.HasKey("id");
 
-                    b.HasIndex("productosId");
+                    b.HasIndex("productosid");
 
                     b.ToTable("factura");
                 });
@@ -130,12 +128,16 @@ namespace Final.Data.Migrations
                     b.Property<string>("detalle")
                         .IsRequired();
 
+                    b.Property<int?>("facturaid");
+
                     b.Property<string>("nombre")
                         .IsRequired();
 
                     b.Property<int>("precio");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("facturaid");
 
                     b.ToTable("productos");
                 });
@@ -248,11 +250,11 @@ namespace Final.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Final.Models.factura", b =>
+            modelBuilder.Entity("Final.Models.productos", b =>
                 {
                     b.HasOne("Final.Models.productos", "productos")
                         .WithMany()
-                        .HasForeignKey("productosId")
+                        .HasForeignKey("productosid")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
